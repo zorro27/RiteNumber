@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RightNumber" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="18g-Iu-qlu">
+                                <rect key="frame" x="72" y="120" width="752" height="31"/>
+                                <imageReference key="minimumValueImage" image="01.circle" catalog="system" symbolScale="large" renderingMode="template"/>
+                                <imageReference key="maximumValueImage" image="50.circle" catalog="system" symbolScale="large" renderingMode="template"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загаданное число " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYx-kM-nqE">
+                                <rect key="frame" x="373.5" y="190" width="149.5" height="21"/>
+                                <color key="backgroundColor" red="0.66763456170000002" green="0.85995892399999996" blue="0.85666868269999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paD-d0-f8N">
+                                <rect key="frame" x="409" y="271" width="78" height="30"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <state key="normal" title="Проверить">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkNumber" destination="BYZ-38-t0r" eventType="touchUpInside" id="LxU-CD-aZW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-wt-y30">
+                                <rect key="frame" x="771" y="338" width="56" height="30"/>
+                                <state key="normal" title="Next VC"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bYx-kM-nqE" firstAttribute="top" secondItem="18g-Iu-qlu" secondAttribute="bottom" constant="40" id="1Rs-ZT-OLP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5aV-wt-y30" secondAttribute="trailing" constant="25" id="Tmd-0B-ojk"/>
+                            <constraint firstItem="bYx-kM-nqE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dC6-Vz-1mg"/>
+                            <constraint firstItem="paD-d0-f8N" firstAttribute="top" secondItem="bYx-kM-nqE" secondAttribute="bottom" constant="60" id="eZm-cq-ku1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5aV-wt-y30" secondAttribute="bottom" constant="25" id="kIa-62-SeU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="18g-Iu-qlu" secondAttribute="trailing" constant="30" id="kOG-Uc-Plp"/>
+                            <constraint firstItem="18g-Iu-qlu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="r9G-k7-rgq"/>
+                            <constraint firstItem="18g-Iu-qlu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="wSP-MJ-Bix"/>
+                            <constraint firstItem="paD-d0-f8N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xOf-IU-eq2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="W05-1s-D1v"/>
+                    <connections>
+                        <outlet property="nextVcButton" destination="5aV-wt-y30" id="Ox7-mM-mHZ"/>
+                        <outlet property="numberLabel" destination="bYx-kM-nqE" id="Wnf-Bm-Ksr"/>
+                        <outlet property="slider" destination="18g-Iu-qlu" id="8ax-1e-h4G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="17" y="-143"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="01.circle" catalog="system" width="128" height="121"/>
+        <image name="50.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
