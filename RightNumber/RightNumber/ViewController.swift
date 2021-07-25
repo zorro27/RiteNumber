@@ -8,21 +8,37 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    var number: Int = 0
-    var round: Int = 1
-    var point: Int = 0
+    var game: Game!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print ("viewDidLoad")
-        self.number = Int.random(in: 1...50)
-        self.numberLabel.text = String(self.number)
-        
+        game = Game(startValue: 1, endValue: 50, rounds: 5)
+        updateLabelWithSecretNumber(newText: String(game.currentSecretValue))
     }
+    
     @IBOutlet var nextVcButton: UIButton!
     @IBOutlet var slider:  UISlider!
     @IBOutlet var numberLabel: UILabel!
     
+    @IBAction func checkNumber() {
+        game.calculateScore(with: Int(slider.value))
+        if game.isGameEnded {
+            showAlertWith(score: game.score)
+            game.restartGame()
+        }else {
+            game.startNewRound()
+        }
+        updateLabelWithSecretNumber(newText: String(game.currentSecretValue))
+    }
+    
+    private func updateLabelWithSecretNumber(newText: String){
+        numberLabel.text = newText
+    }
+    
+    private func showAlertWith (score:Int){
+        let alert = UIAlertController(title: "Игра окончена", message: "Вы набрали \(score)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Начать заново", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
